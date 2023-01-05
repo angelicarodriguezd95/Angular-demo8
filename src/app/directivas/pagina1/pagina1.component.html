@@ -1,0 +1,37 @@
+<!-- {{}} > Llama un atributo de la calse del componente. -->
+<p>Nombre: {{nombre}}</p>
+<p>Edad: {{edad}}</p>
+<!-- ngiF es la directiva que se usa para ocultar o mostrar elementos en el DOM en función a una expresión Booleana -->
+<p *ngIf="edad<=18; else mayor">Es menor de edad</p> <!-- Este es como un if else. Si es verdadero se muestra -->
+<!-- La variable local, falso, está diriendo a un template para colocar el mensaje dentro del HTML  -->
+<ng-template #mayor>
+  <!-- El template es una plantilla de código que se puede reutilizar. Esto es como hacer un InnetHTML para manipular el DOM. La sintaxis #falso se usa para crear una variable local llamada "falso" y asignarle una plantilla definida con la etiqueta ng-template. -->
+  <p>Es mayor de edad</p> <!-- Si es falso me muestra esto. -->
+  <p>Sueldos:</p>
+  <ul class="list-group">
+    <li *ngFor="let sb of sueldos" class="list-group-item">
+      <!-- Estamos diciendo que la variable sb recorra la matrix sueldo -->
+      <a href="">{{sb}}</a> <!-- Cada vez que la recorra voy a decir que se imprima sb -->
+    </li>
+  </ul>
+</ng-template>
+
+<br>
+
+
+<form action="">
+  <label for=""> Usuario
+    <input type="text" #txtUser>
+  </label>
+  <label for=""> Contraseña
+    <input type="password" #txtUser>
+  </label>
+  <input type="button" value="Enviar" (click)="Validar(txtUser.value)">
+</form>
+
+<p *ngIf="resultado == true; else error">Usuario correcto</p>
+<ng-template #error>
+  <p>Usuario incorrecto</p>
+</ng-template>
+
+<p>resultado: {{ mensaje }}</p>
